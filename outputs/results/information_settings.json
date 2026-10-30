@@ -1,0 +1,301 @@
+{
+  "jar": "/Users/attie/Desktop/Information theory/jidt-1.6.1/infodynamics.jar",
+  "jar_sha256": "2d367c244b729877fdaf0608884cf97ae964a8035c3020215b799812143a5b11",
+  "jidt_version": "1.6.1",
+  "algorithm": "CPU Kraskov algorithm 1, MI and joint-space CMI",
+  "k_baseline": 4,
+  "window_baseline_rows": 45,
+  "normalisation": "external per-column z score, sample standard deviation ddof=1; JIDT NORMALISE=false",
+  "noise": "external Gaussian std 1e-8 in standardized units; JIDT NOISE_LEVEL_TO_ADD=0",
+  "noise_seed": 20261030,
+  "surrogate_seed": 20261030,
+  "threads": 4,
+  "gpu": false,
+  "window_semantics": "v1.6.1 single-set row-index exclusion; conservative physical-time lower bound, quantified extra exclusions across gaps",
+  "lag_hours": [
+    0,
+    0.5,
+    1,
+    2
+  ],
+  "lag_definition": "offshore at t predicts nearshore at t+lag; raw QC-retained files rematched on actual timestamps",
+  "lag_justification": "0, 0.5, 1 and 2 h bracket short delays at available nearshore resolution; exploratory alignment sensitivity, not a travel-time estimate. Widely separated Sydney\u2013Stockton need not share a direct propagation path.",
+  "surrogate_method": "MI unrestricted source permutation; CMI joint predictor-row permutations within 50 rank-based equal-count offshore-height groups; references with unrestricted, 25 and 100 groups",
+  "p_value": "upper tail (1 + count(null >= observed))/(B+1); approximate diagnostic under temporal dependence and coarse conditioning, not confirmatory conditional-independence test",
+  "units": "raw nats, bits = nats / ln(2)",
+  "inputs": {
+    "figure_eight_pools_lag0_available": {
+      "means": {
+        "Ho": 1.494699868938401,
+        "Hn": 1.2839201980486386,
+        "Tp_o": 9.900262123197901,
+        "Dx": -0.5794341071483629,
+        "Dy": 0.5603829726967144
+      },
+      "sample_std": {
+        "Ho": 0.6520155137587137,
+        "Hn": 0.5728054625374047,
+        "Tp_o": 2.36506686893216,
+        "Dx": 0.47315958976817046,
+        "Dy": 0.3555250355253248
+      },
+      "input_sha256": "8a11f02e18bc447d7f10d084cc7fcfc3a3bfd65114234661f5e63d05fd333a6a"
+    },
+    "figure_eight_pools_lag0_common": {
+      "means": {
+        "Ho": 1.4924046865104497,
+        "Hn": 1.2849825839138695,
+        "Tp_o": 10.003182393920202,
+        "Dx": -0.5924252288421104,
+        "Dy": 0.5698514312121623
+      },
+      "sample_std": {
+        "Ho": 0.6332176746859206,
+        "Hn": 0.5537363047368015,
+        "Tp_o": 2.295552525836182,
+        "Dx": 0.4598050241129739,
+        "Dy": 0.3360541452874408
+      },
+      "input_sha256": "b6f68d0a961ce68657a521fe49bbd142f04106bca2ff6f8c75dcde15029b05ff"
+    },
+    "figure_eight_pools_lag0.5_available": {
+      "means": {
+        "Ho": 1.496293903681071,
+        "Hn": 1.2835399388913138,
+        "Tp_o": 9.887596391677578,
+        "Dx": -0.5776096678905693,
+        "Dy": 0.5595772053990741
+      },
+      "sample_std": {
+        "Ho": 0.6525426000833506,
+        "Hn": 0.5723789750741399,
+        "Tp_o": 2.3716803799949733,
+        "Dx": 0.4762458238456294,
+        "Dy": 0.355642715210324
+      },
+      "input_sha256": "8b9647a18835efba9fcf413c82ecf8833421124a6f98b66ea25ab3de5fe97b25"
+    },
+    "figure_eight_pools_lag0.5_common": {
+      "means": {
+        "Ho": 1.4924046865104497,
+        "Hn": 1.2823005066497783,
+        "Tp_o": 10.003182393920202,
+        "Dx": -0.5924252288421104,
+        "Dy": 0.5698514312121623
+      },
+      "sample_std": {
+        "Ho": 0.6332176746859206,
+        "Hn": 0.5532305001754396,
+        "Tp_o": 2.295552525836182,
+        "Dx": 0.4598050241129739,
+        "Dy": 0.3360541452874408
+      },
+      "input_sha256": "a8a28ced286e734497ea9bb11d3c4672dc957f63ac49c5cfb099980d6a8bbce6"
+    },
+    "figure_eight_pools_lag1_available": {
+      "means": {
+        "Ho": 1.4946226140171939,
+        "Hn": 1.282775754043421,
+        "Tp_o": 9.891116129972318,
+        "Dx": -0.5789592117260818,
+        "Dy": 0.5597650597319613
+      },
+      "sample_std": {
+        "Ho": 0.6494834860749744,
+        "Hn": 0.571110968677276,
+        "Tp_o": 2.3668808804153705,
+        "Dx": 0.4748321456743538,
+        "Dy": 0.3550421977109047
+      },
+      "input_sha256": "29673dfd421953067e1f4687d8e309d44649be53e3be4a7834d103f542ccfb6d"
+    },
+    "figure_eight_pools_lag1_common": {
+      "means": {
+        "Ho": 1.4924046865104497,
+        "Hn": 1.2805905636478785,
+        "Tp_o": 10.003182393920202,
+        "Dx": -0.5924252288421104,
+        "Dy": 0.5698514312121623
+      },
+      "sample_std": {
+        "Ho": 0.6332176746859206,
+        "Hn": 0.5512791570322981,
+        "Tp_o": 2.295552525836182,
+        "Dx": 0.4598050241129739,
+        "Dy": 0.3360541452874408
+      },
+      "input_sha256": "8db2c5821d09c6c593f2a29c5630c41a22838396bd474185706f8d9b124ce1b9"
+    },
+    "figure_eight_pools_lag2_available": {
+      "means": {
+        "Ho": 1.4972767011511003,
+        "Hn": 1.2830948564767592,
+        "Tp_o": 9.887334984700567,
+        "Dx": -0.5806182897395619,
+        "Dy": 0.5575802084507997
+      },
+      "sample_std": {
+        "Ho": 0.6541173658839773,
+        "Hn": 0.571618714454085,
+        "Tp_o": 2.3739652260146427,
+        "Dx": 0.4746208667338977,
+        "Dy": 0.3560520196351119
+      },
+      "input_sha256": "98a3d57558946480d2d57499af73a85527b794d867bba870addbb8eaa0918521"
+    },
+    "figure_eight_pools_lag2_common": {
+      "means": {
+        "Ho": 1.4924046865104497,
+        "Hn": 1.2774477517416085,
+        "Tp_o": 10.003182393920202,
+        "Dx": -0.5924252288421104,
+        "Dy": 0.5698514312121623
+      },
+      "sample_std": {
+        "Ho": 0.6332176746859206,
+        "Hn": 0.5490384393458684,
+        "Tp_o": 2.295552525836182,
+        "Dx": 0.4598050241129739,
+        "Dy": 0.3360541452874408
+      },
+      "input_sha256": "c7e8d6adf8268226878f4a0a0108ba3f5f4bcd916f130aadbd2d87619ec9082e"
+    },
+    "stockton_lag0_available": {
+      "means": {
+        "Ho": 1.6986853259836532,
+        "Hn": 1.0720899068618133,
+        "Tp_o": 9.753829119939176,
+        "Dx": -0.5395285297214271,
+        "Dy": 0.5513975614976615
+      },
+      "sample_std": {
+        "Ho": 0.7719642353374182,
+        "Hn": 0.5400647293478555,
+        "Tp_o": 2.3987543306126593,
+        "Dx": 0.5174639821135244,
+        "Dy": 0.37032310765158116
+      },
+      "input_sha256": "2bd57e9ea57c0d29b1b73fbee6fba86c2fcd46cfef6f2b6ae2387f0279223779"
+    },
+    "stockton_lag0_common": {
+      "means": {
+        "Ho": 1.7037275637915978,
+        "Hn": 1.0753769283011545,
+        "Tp_o": 9.766210342485689,
+        "Dx": -0.5434507932083774,
+        "Dy": 0.5513605525046398
+      },
+      "sample_std": {
+        "Ho": 0.7727969142895235,
+        "Hn": 0.5396037360772317,
+        "Tp_o": 2.3757514744816217,
+        "Dx": 0.5129984843720766,
+        "Dy": 0.3708560477961929
+      },
+      "input_sha256": "bcb512d95e3ba0b8990a927bc23bf5157c2b62c683c41fa71733e707f29faac1"
+    },
+    "stockton_lag0.5_available": {
+      "means": {
+        "Ho": 1.6984807107563666,
+        "Hn": 1.07230805777271,
+        "Tp_o": 9.756252375522614,
+        "Dx": -0.5391716173299097,
+        "Dy": 0.5510613475784955
+      },
+      "sample_std": {
+        "Ho": 0.7730792504162466,
+        "Hn": 0.5406256241632649,
+        "Tp_o": 2.4050812486029463,
+        "Dx": 0.5179453674119451,
+        "Dy": 0.37067034032752944
+      },
+      "input_sha256": "a598714b7241b487cbcb6fa66d239853df13a03a991d0a41aac3dcb96d927a46"
+    },
+    "stockton_lag0.5_common": {
+      "means": {
+        "Ho": 1.7037275637915978,
+        "Hn": 1.0759571165227515,
+        "Tp_o": 9.766210342485689,
+        "Dx": -0.5434507932083774,
+        "Dy": 0.5513605525046398
+      },
+      "sample_std": {
+        "Ho": 0.7727969142895235,
+        "Hn": 0.5382066440671094,
+        "Tp_o": 2.3757514744816217,
+        "Dx": 0.5129984843720766,
+        "Dy": 0.3708560477961929
+      },
+      "input_sha256": "cfbeeeaec496ad8f9b7b32af384b99cce31a335706efb6018d1f60c76fe378c2"
+    },
+    "stockton_lag1_available": {
+      "means": {
+        "Ho": 1.6988123752495012,
+        "Hn": 1.072432278300542,
+        "Tp_o": 9.756379621708962,
+        "Dx": -0.5400897312470532,
+        "Dy": 0.5509898692551022
+      },
+      "sample_std": {
+        "Ho": 0.7717951167544909,
+        "Hn": 0.5401091688338502,
+        "Tp_o": 2.401314821239097,
+        "Dx": 0.5169143857355852,
+        "Dy": 0.37087900296488263
+      },
+      "input_sha256": "82bf7170f1877fa78d6fd9828dfc11205bb5282dfdf38a405ca0da4133e9e162"
+    },
+    "stockton_lag1_common": {
+      "means": {
+        "Ho": 1.7037275637915978,
+        "Hn": 1.0753973028039197,
+        "Tp_o": 9.766210342485689,
+        "Dx": -0.5434507932083774,
+        "Dy": 0.5513605525046398
+      },
+      "sample_std": {
+        "Ho": 0.7727969142895235,
+        "Hn": 0.5393666503134118,
+        "Tp_o": 2.3757514744816217,
+        "Dx": 0.5129984843720766,
+        "Dy": 0.3708560477961929
+      },
+      "input_sha256": "f554d8b321360af5348d9eb2275e8c0caa620c69f54a906f29700d5231b57904"
+    },
+    "stockton_lag2_available": {
+      "means": {
+        "Ho": 1.6990966546283977,
+        "Hn": 1.0729424063866184,
+        "Tp_o": 9.753331115757462,
+        "Dx": -0.5400229104288551,
+        "Dy": 0.551064094898966
+      },
+      "sample_std": {
+        "Ho": 0.7720570170108284,
+        "Hn": 0.540727533845461,
+        "Tp_o": 2.399890303080132,
+        "Dx": 0.5170473403635043,
+        "Dy": 0.3706806356116808
+      },
+      "input_sha256": "e235fdbc340d4920c8d7c20402b29e6e168887ca81c5002e97d98bf0081d5c0b"
+    },
+    "stockton_lag2_common": {
+      "means": {
+        "Ho": 1.7037275637915978,
+        "Hn": 1.0755379838944406,
+        "Tp_o": 9.766210342485689,
+        "Dx": -0.5434507932083774,
+        "Dy": 0.5513605525046398
+      },
+      "sample_std": {
+        "Ho": 0.7727969142895235,
+        "Hn": 0.5401068933344333,
+        "Tp_o": 2.3757514744816217,
+        "Dx": 0.5129984843720766,
+        "Dy": 0.3708560477961929
+      },
+      "input_sha256": "76f1051150258f9fbe6cc66c46e3b94b50f9a3014acd14feee6f64e7d1ff6359"
+    }
+  },
+  "elapsed_seconds": 81.94968390464783
+}

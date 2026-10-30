@@ -1,0 +1,11 @@
+site,variable,first_abs_acf_below_1e_hours,sustained_abs_acf_below_1e_hours,first_nonpositive_acf_hours,minimum_pairs_required,pairs_at_selected_decay
+figure_eight_pools,Ho,30,30,62.0,687,5980
+figure_eight_pools,Hn,29,29,61.0,687,6001
+figure_eight_pools,Tp_o,16,16,,687,6110
+figure_eight_pools,Dx,19,19,185.0,687,6079
+figure_eight_pools,Dy,16,16,219.0,687,6110
+stockton,Ho,41,41,92.0,1053,9516
+stockton,Hn,45,45,109.0,1053,9475
+stockton,Tp_o,17,17,311.0,1053,9815
+stockton,Dx,21,21,56.0,1053,9747
+stockton,Dy,19,19,65.0,1053,9779

@@ -1,0 +1,35 @@
+{
+  "max_lag_hours": 336,
+  "acf_method": "lag-specific Pearson correlation of observed endpoint pairs separated by exact elapsed hours",
+  "threshold_abs_acf": 0.36787944117144233,
+  "sustained_hours": 6,
+  "selection_rule": "First lag starting six successive supported hourly lags with |ACF| <= 1/e; maximum across Ho, Hn, Tp_o, Dx, Dy. Common baseline is maximum across sites.",
+  "minimum_pair_rule": "max(100, ceil(0.1 * lag-zero pairs))",
+  "sites": [
+    {
+      "site": "figure_eight_pools",
+      "observations": 6867,
+      "uninterrupted_runs": 378,
+      "site_window_hours": 30,
+      "status": "selected"
+    },
+    {
+      "site": "stockton",
+      "observations": 10522,
+      "uninterrupted_runs": 265,
+      "site_window_hours": 45,
+      "status": "selected"
+    }
+  ],
+  "common_baseline_window_hours": 45,
+  "sensitivity_windows_hours": [
+    0,
+    23,
+    45,
+    90
+  ],
+  "jidt_property": "DYN_CORR_EXCL",
+  "jidt_loading": "CPU; TIME_DIFF=0 for already aligned MI. Use addObservationsTrackObservationIDs for each consecutive hourly run, same set ID 0, startTimeIndex=actual elapsed hour. Never assign a fresh set ID at each gap.",
+  "limitations": "Descriptive e-folding heuristic, not proof of independence or a significance test. Longer-lived/recurring dependence can remain; compare window sensitivity. JIDT jar is not bundled, so runtime integration remains to be verified against the installed version.",
+  "installed_jidt_1_6_1_compatibility": "No actual-time tracking API. Downstream runs use a conservative 45-retained-row window, not an exact 45-hour window; see information_exclusion_audit.csv and information_analysis_report.md."
+}

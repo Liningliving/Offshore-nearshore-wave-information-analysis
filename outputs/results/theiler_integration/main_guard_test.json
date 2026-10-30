@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python3",
+    "src/information_analysis.py",
+    "--pilot"
+  ],
+  "returncode": 2,
+  "stderr": "usage: information_analysis.py [-h] [--jar JAR] [--surrogates SURROGATES]\n                               [--pilot] [--allow-conservative-index-window]\ninformation_analysis.py: error: Exact 45-hour integration failed for JIDT 1.6.1: this runner uses retained-row indices. Main analysis is blocked by default. The --allow-conservative-index-window flag explicitly opts into the earlier approximation; it does not fix elapsed-time exclusion.\n",
+  "default_analysis_blocked": true
+}
