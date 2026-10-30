@@ -1,6 +1,5 @@
 # Wave dependence: preprocessing and exploration
 
-> **Integration gate:** The focused Java test found that JIDT 1.6.1 fails exact 45-hour exclusion across gaps. Main analysis now stops by default. Earlier results below use the documented row-window approximation. See [the focused integration report](outputs/results/theiler_integration/report.md). Run `python3 src/check_theiler_integration.py` to reproduce the check; status 1 indicates the elapsed-hour criterion failed. The selected 45-hour baseline and cleaned data are unchanged.
 
 
 Run `python3 src/preprocess.py` from this directory (or run the script by its absolute path). Dependencies for these steps are in `requirements.txt`. Original input files are read without modification. Running the script again replaces the generated outputs.
@@ -33,30 +32,6 @@ Run `python3 src/autocorrelation.py` after preprocessing. This computes exact el
 
 See [the autocorrelation report](outputs/results/autocorrelation_report.md) for the definition, selection rule, numerical results and limitations. The selected site windows are 30 h (Figure Eight Pools) and 45 h (Stockton); the common baseline is 45 h, with planned sensitivity settings 0, 23, 45 and 90 h. These are an e-folding heuristic, not proof of independence.
 
-`src/jidt_timing.py` prepares already aligned observations for later CPU JIDT MI/CMI using actual elapsed-hour indices across gaps and a shared observation-set ID within each site. It preserves `[Dx, Dy]` as a single two-dimensional variable. The helper requires a newer time-tracking API. Subsequent integration with the locally supplied JIDT 1.6.1 jar found that API absent; see the version-specific correction and completed MI/CMI results below.
+`src/jidt_timing.py` prepares already aligned observations for later CPU JIDT MI/CMI using actual elapsed-hour indices across gaps and a shared observation-set ID within each site. It preserves `[Dx, Dy]` as a single two-dimensional variable. The helper requires JIDT's time-tracking API; runtime integration must be verified before future MI/CMI estimation.
 
 Run timing and ACF checks with `python3 -m unittest discover -s tests`.
-
-## JIDT estimates, surrogate diagnostics and sensitivities (steps 7–9)
-
-Implemented through the supplied **JIDT 1.6.1 Java jar**, without GUI automation or a Python JVM bridge:
-
-```sh
-python3 src/information_analysis.py --pilot
-python3 src/information_analysis.py --surrogates 199
-python3 src/report_information.py
-```
-
-The default jar is `/Users/attie/Desktop/Information theory/jidt-1.6.1/infodynamics.jar`; override with `--jar`. Java and javac are required. The pilot uses 9 surrogates per primary measure, followed by 199 final primary surrogate diagnostics. CMI references also compare 25/50/100 offshore-height strata and unrestricted shuffling. These are approximate diagnostics because temporal dependence and coarse conditioning limit the null models.
-
-See [the completed analysis report](outputs/results/information_analysis_report.md), [all run results](outputs/results/information_results.csv), [primary estimates](outputs/results/primary_information_measures.csv), and [settings](outputs/results/information_settings.json). Figures include primary estimates, one-factor sensitivities and surrogate distributions. Units are saved as both nats and bits.
-
-**Version-specific exclusion correction:** JIDT 1.6.1 lacks the actual-time tracking API used by the earlier helper. These runs use DYN_CORR_EXCL=45 retained rows as a conservative exclusion of every pair within 45 hours plus extra pairs across gaps. The extra exclusions are quantified in `information_exclusion_audit.csv`. This is not an exact elapsed-hour window and does not imply conservative p-values. The newer-API helper is not used by this runner.
-
-Sensitivity runs compare k=3/4/6/8, index windows=0/23/45/90, and physical lags=0/0.5/1/2 hours. Lagged observations are rematched from raw timestamped records, with both all-available and common-timestamp cohorts. No interpolation or extreme-wave trimming is applied. The seven tests include real JIDT integration, analytic Gaussian MI and conditional-confounding examples.
-
-## Official-source exact-time integration update
-
-The unmodified official JIDT snapshot at commit `1ca832235e64ae5b3a482dc0ead6f9b2ff2a0456` compiled and passed exact elapsed-hour Java tests, including 44/45/46-hour boundaries across gaps, stored set/time indices, marginal searches and actual nearest neighbours. Both real sites retain all observations. See [the exact integration report](outputs/results/theiler_exact_integration/report.md) and [acceptance evidence](outputs/results/theiler_exact_integration/acceptance.json).
-
-The new jar and provenance are in `lib/jidt-official/`; the original external 1.6.1 jar remains untouched. `ElapsedHourLoader.java` and `WaveInformationExact.java` provide verified exact-time application loading. The main Python runner remains stopped by default pending connection to this adapter; previous main-analysis results still use row-based exclusion. No main analysis was rerun.

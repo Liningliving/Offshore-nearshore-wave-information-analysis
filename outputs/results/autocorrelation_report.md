@@ -1,6 +1,5 @@
 # Temporal autocorrelation and Theiler window
 
-**Subsequent integration update:** The supplied JIDT 1.6.1 jar lacks the newer elapsed-time tracking API described below. Actual MI/CMI runs use an explicitly conservative retained-row exclusion and quantify its additional exclusions across gaps. See [the completed analysis report](information_analysis_report.md). The ACF results and 45-hour physical-timescale recommendation are unchanged.
 
 Run `python3 src/autocorrelation.py` after preprocessing. The default maximum lag is 336 hours (14 days); use `--max-lag-hours` to change it.
 

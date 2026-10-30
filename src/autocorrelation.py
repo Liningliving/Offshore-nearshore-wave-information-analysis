@@ -142,8 +142,7 @@ def main():
               "sensitivity_windows_hours": sorted(set([0, max(1, int(np.ceil(common / 2))), common, 2 * common])) if common is not None else [],
               "jidt_property": "DYN_CORR_EXCL",
               "jidt_loading": "CPU; TIME_DIFF=0 for already aligned MI. Use addObservationsTrackObservationIDs for each consecutive hourly run, same set ID 0, startTimeIndex=actual elapsed hour. Never assign a fresh set ID at each gap.",
-              "installed_jidt_1_6_1_compatibility": "No actual-time tracking API; downstream runs use a conservative retained-row window. See information_analysis_report.md and information_exclusion_audit.csv.",
-              "limitations": "Descriptive e-folding heuristic, not proof of independence or a significance test. Longer-lived/recurring dependence can remain; compare window sensitivity. The local JIDT 1.6.1 integration is documented separately in information_analysis_report.md."}
+              "limitations": "Descriptive e-folding heuristic, not proof of independence or a significance test. Longer-lived/recurring dependence can remain; compare window sensitivity. Runtime integration must be verified against the installed JIDT version before MI/CMI estimation."}
     (results / "theiler_window_selection.json").write_text(json.dumps(config, indent=2, allow_nan=False) + "\n")
     print(pd.DataFrame(summaries).to_string(index=False))
     print(f"Common baseline Theiler window: {common} hours; per-site diagnostics: {diagnostics}")
