@@ -19,7 +19,22 @@ Skip cloning if the checkout is already present. Rebuild only if necessary with 
 
 ## 2. Pipeline and commands
 
-Current results are already saved. The commands below deliberately regenerate their corresponding products; no analysis was rerun to consolidate this documentation.
+### Rebuild scopes
+
+| Scope | Required inputs | What runs |
+|---|---|---|
+| Report only | Saved numerical results/metadata, existing selected figures and manuscript template | `consolidate_final_report.py`; no Java or estimation |
+| Figures and report | Same saved analysis inputs; figure script also reads cleaned observations and saved preprocessing correlations | `make_presentation_figures.py`, then `consolidate_final_report.py`; no JIDT |
+| Numerical rerun | Raw data, Python environment, local JDK and pinned JIDT source/build | Preprocessing, ACF, primary estimators and sensitivity stages |
+
+A report-only rebuild was verified in temporary storage using the current saved inputs and installed dependencies. It produced Markdown, Word and a manifest without changing the existing science artifacts.
+
+A fresh Git clone already contains the saved analysis products needed for the first two scopes; the ignored virtual environment must be recreated. Installing config/requirements-report.txt also installs the base requirements through its relative include. Run all commands from the repository root.
+
+**A numerical rerun is not a clean-room rebuild of every repository artifact.** The comparison table, verified dataset description, manuscript template and verified-source hashes are retained inputs; current scripts consume them rather than reconstructing all of them from scratch. Historical inference reports also document earlier runs. Do not delete all results/research folders and expect report assembly to recreate them. Regenerated CSV metadata, library versions or JIDT build hashes can differ even when estimates are close; verification gates deliberately stop on such differences. Review a numerical rerun separately instead of bypassing the reference checks.
+
+
+Current results are already saved. The commands below regenerate their individual products; they are not a single automatic whole-repository build.
 
 | Purpose | Command | Main product |
 |---|---|---|
@@ -34,6 +49,20 @@ Current results are already saved. The commands below deliberately regenerate th
 | Generate selected presentation figures | `.venv/bin/python src/make_presentation_figures.py` | deliverables/figures/ |
 | Assemble the scientific report | `.venv/bin/python src/consolidate_final_report.py` | deliverables/ |
 | Check implementation | `.venv/bin/python -m unittest discover -s tests` | Temporary numerical/Java test evidence |
+
+For a deliberate numerical rerun, after obtaining/verifying the pinned JIDT checkout, the main calculation order is:
+
+```sh
+# Only rebuild the official jar if necessary:
+.venv/bin/python src/build_jidt_official.py
+.venv/bin/python src/preprocess.py
+.venv/bin/python src/autocorrelation.py
+.venv/bin/python src/primary_information.py
+.venv/bin/python src/sensitivity_analysis.py
+.venv/bin/python src/report_sensitivity_analysis.py
+```
+
+These commands recompute the numerical stages, not the versioned comparison/description inputs. Proceed to figure/report assembly only after reviewing the resulting outputs and compatibility checks. Surrogate-method and failed subsampling studies are separate historical investigations, not prerequisites to rerun automatically or routes to new significance claims.
 
 Preprocessing uses original QC flags, complete concurrent tuples, nonnegative heights and positive periods, without interpolation or removal of valid extremes. Offshore TIME is UTC; nearshore Time is fixed AEST (UTC+10), converted to UTC. Data definitions, sampling and physical interpretation are documented in the scientific report. Their implementation audit is [preprocessing_audit.json](../results/preprocessing/preprocessing_audit.json).
 
