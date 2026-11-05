@@ -44,5 +44,7 @@
   "archive/professor_revision/verified_dataset_description.csv": "results/preprocessing/verified_dataset_description.csv",
   "src/audit_final_figures.py": "src/make_presentation_figures.py",
   "results/primary_information/report.md": "docs/analysis_workflow.md",
-  "deliverables/assessment_status.md": "README.md"
+  "deliverables/assessment_status.md": "README.md",
+  "deliverables/final_scientific_report.md": "final_scientific_report.md",
+  "deliverables/final_scientific_report.docx": "final_scientific_report.docx"
 }

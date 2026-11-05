@@ -11,6 +11,7 @@ from docx.oxml.ns import qn
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'deliverables'
+REPORT_OUT=ROOT
 SITES=['figure_eight_pools','stockton']
 MEASURES=['I(Ho;Hn)','I(Tp_o;Hn|Ho)','I((Dx,Dy);Hn|Ho)']
 
@@ -65,7 +66,7 @@ def word_document(text):
             doc.add_paragraph();continue
         match=re.fullmatch(r'!\[([^\]]*)\]\(([^)]+)\)',line)
         if match:
-            doc.add_picture(str(OUT/match.group(2)),width=Inches(6.4));i+=1;continue
+            doc.add_picture(str(REPORT_OUT/match.group(2)),width=Inches(6.4));i+=1;continue
         if line.startswith('# '):doc.add_heading(line[2:],0)
         elif line.startswith('### '):doc.add_heading(line[4:],2)
         elif line.startswith('## '):doc.add_heading(line[3:],1)
@@ -77,12 +78,12 @@ def word_document(text):
     doc.core_properties.title='Offshore–nearshore wave dependence across contrasting NSW coastal settings'
     doc.core_properties.subject='Final descriptive report using unchanged Step 7 and Step 9 results'
     doc.core_properties.keywords='mutual information; conditional mutual information; coastal waves; descriptive comparison'
-    doc.save(OUT/'final_scientific_report.docx')
+    doc.save(REPORT_OUT/'final_scientific_report.docx')
     # Content consistency checks, not a visual pagination claim.
-    reread=Document(OUT/'final_scientific_report.docx')
+    reread=Document(REPORT_OUT/'final_scientific_report.docx')
     assert len(reread.inline_shapes)==3 and len(reread.tables)==5
     for value in ['+0.868023','−0.040520','+0.134605']:
-        assert value in '\n'.join(p.text for p in reread.paragraphs)
+        assert value in '\n'.join(cell.text for t in reread.tables for row in t.rows for cell in row.cells)
 
 def main():
     protected=[p for area in ['data','results','research','deliverables'] for p in (ROOT/area).rglob('*') if p.is_file() and not p.is_relative_to(OUT)]
@@ -148,7 +149,7 @@ def main():
     text=(ROOT/'docs/templates/final_report.md').read_text()
     for key,value in replacements.items():text=text.replace('{{'+key+'}}',value)
     assert '{{' not in text
-    (OUT/'final_scientific_report.md').write_text(text)
+    (REPORT_OUT/'final_scientific_report.md').write_text(text)
     word_document(text)
     assert all(digest(ROOT/path)==wanted for path,wanted in before.items())
     sources=['results/primary_information/primary_information_summary.csv','results/sensitivity_analysis/all_sensitivity_results.csv','results/primary_information/between_site_contrasts.csv','results/preprocessing/preprocessing_audit.json','results/preprocessing/verified_dataset_description.csv','results/preprocessing/autocorrelation_decay_summary.csv','research/surrogate_validation/report.md','research/between_site_method_assessment/assessment.md','docs/project_proposal.pdf','docs/templates/final_report.md']

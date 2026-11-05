@@ -123,7 +123,7 @@ The validation command cannot launch wave significance testing. Eight automated 
 
 **Wave significance testing stopped because the candidate null methods had unresolved validity problems.** No wave-data surrogate pilot or 199-surrogate main analysis was run. The [six-test status table](wave_significance_status.csv) preserves the original primary estimates, including Stockton's negative period CMI, with zero wave surrogates and missing unadjusted and Holm-adjusted p-values. Missing p-values do not indicate non-significant results: these tests were not performed.
 
-This investigation concerns within-site independence and conditional independence. It does not test the differences between Figure Eight Pools and Stockton. The final project retains descriptive site comparisons; no additional calibration or statistical method is proposed as part of the completed analysis. See the [scientific report](../../deliverables/final_scientific_report.md) and [between-site methodological assessment](../between_site_method_assessment/assessment.md).
+This investigation concerns within-site independence and conditional independence. It does not test the differences between Figure Eight Pools and Stockton. The final project retains descriptive site comparisons; no additional calibration or statistical method is proposed as part of the completed analysis. See the [scientific report](../../final_scientific_report.md) and [between-site methodological assessment](../between_site_method_assessment/assessment.md).
 
 ## Estimator and computational checks
 

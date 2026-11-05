@@ -1,6 +1,6 @@
 {
   "preserved_original_sha256": {
-    "data/README.md": "48ad40091282c011e4693c45c013ddfb7d7027077e6e2a6610d9bc5b12e20212",
+    "data/.DS_Store": "5ea4391d794ee27f47a2c096bcfc8b3c5aa323a07e7a7debdc4cd6384fc30dcd",
     "data/processed/figure_eight_pools.csv": "02b1b6113c013d7d943f4752d3d32e3c1b63fbce436b9b6577d252ff2a26ceae",
     "data/processed/stockton.csv": "246a60fbd4bcaaae4417bb90d8e9394b2ccef09bfef61ab901fe4ba6ca012c97",
     "data/raw/Wave_buoys_Observations_-_Australia_-_delayed_(National_Wave_Archive)-2.csv": "e7fb5ae2a5bbc7b6018f1f2b902b4b9af98e66f8f75d4fc7b0ec831ccba04170",
@@ -22,8 +22,7 @@
     "data/raw/NSWENV_20191206-20210409_13m_Stockton_WAVE/NSWENV_20191206-20210409_13m_Stockton_WAVE_ExceedanceDm.csv": "00dde0c820c2a70e1469308d91e9d27c39c55f7c1112c5cf674a0df778b0add2",
     "data/raw/NSWENV_20191206-20210409_13m_Stockton_WAVE/NSWENV_20191206-20210409_13m_Stockton_WAVE_Summary.png": "b948e4c15f20be50eb7f93b717beb0065b58fe7a2b2f04eb2df01cc8280ce282",
     "data/raw/NSWENV_20191206-20210409_13m_Stockton_WAVE/NSWENV_20191206-20210409_13m_Stockton_WAVE_Parameters.csv": "cd94f1e5fa5ba0a887b9bcd4827ea8889349bf17eeb511e6587fe10927c1061a",
-    "results/README.md": "9a2b7d0d472858f84f3cc88b0b15c76632ab33f32f3549043a924da1f8d9cb65",
-    "results/primary_information/report.md": "6cc8d072123b84b8e1723737810ecbddaaafd55e88248b9d95d2e5f2c37c9ac6",
+    "results/.DS_Store": "d6f9637dabb60949c3b92fc4eb25737271f546a68ea1c1ab366cae0ac33dba67",
     "results/primary_information/figure_eight_pools_estimates.csv": "18d23965b8c88f1241e59bcfe9f2437ee9da6a313004657e9240860375e9be82",
     "results/primary_information/stockton_segments.csv": "de9dbf7d37d920e813a90e6bb14190b56634ae23caaabd6ff3d02948a32ab138",
     "results/primary_information/between_site_contrasts.csv": "4fd1133a5dc91c1bc0ebdd33b94bd1bb21c081068095bbeda136ecc2b982abc7",
@@ -212,7 +211,7 @@
     "results/sensitivity_analysis/inputs/figure_eight_pools_lag0.5_all_available_timestamps.csv": "f40029c9f60cf25b96ae53f7fd21baabd3cabf48006fae31cce5b53fa76ba456",
     "results/sensitivity_analysis/inputs/figure_eight_pools_lag1_common_source_timestamps.csv": "0158beef34471c9532c8b25996ec08ed0df3c23d5f3f2764a6d816e468e16426",
     "results/sensitivity_analysis/inputs/figure_eight_pools_lag2_all_available_timestamps.csv": "a51a7f145a1e6c091c8048d3c402d7972fba3d81af0713d03c3bad88cb6a6a70",
-    "research/README.md": "5cbfb55c8bdc99cf9f55ad26da2646e98d6bf9ec0406d4305a641ac6900058ac",
+    "research/.DS_Store": "125b9fe4bee905392ea48ef6f51b4758b7fa3a5f488d806c415522138a609d1a",
     "research/between_site_subsampling/README.md": "c6ef0226d810d2b2b2e26f22a03dfe9239e0801240621fbb51ac2e2a57d78168",
     "research/between_site_subsampling/inference_gate.json": "e2745eb8adf5ce129b5ca5063e2be63900af31227d56d1961666d3efd99f4f6b",
     "research/between_site_subsampling/validation/equal_information_same_persistence_r00_blocks.csv": "12746a260fbef795cd7d4070646a87908176398ab4587a0aea1cce27c993ff6e",
@@ -369,7 +368,7 @@
     "research/between_site_subsampling/validation/known_information_difference_r02_B.csv": "cbeac2bc7f3ea7413099a6c385369180e6c2d2481e28ca3ebe21e9644f6a9142",
     "research/surrogate_validation/wave_significance_status.csv": "c3b07838733670b811d72409173c986ce8bca0f3c1a0eda90a0824d28c7d51d7",
     "research/surrogate_validation/synthetic_temporal_preservation.png": "a72ac5b6866c25acdd0987efe900a9916e05af910e884125dd49ca7223f3a5c5",
-    "research/surrogate_validation/report.md": "00fdfdd832c26da230865d230a4a0ae489861395223ac456f00d51202120b296",
+    "research/surrogate_validation/report.md": "af883f93d1fe76d734a2e302177f044c40d8cd1e54ab3589085634c44051b2d2",
     "research/surrogate_validation/synthetic_surrogate_distributions.png": "d9cd360977230218a54750d44826bb4fbfd6872305392657ba00674dd76f88ce",
     "research/surrogate_validation/wave_timestamp_mask_audit.json": "ccf5c7b528c1e3053028b7a92d49bf73dfca142f190dc5a247441d66a5f17ffd",
     "research/surrogate_validation/methodology.md": "7048c5274817f3b785948864d4a0c3c8f932e142929c073580bf65255e9e3bc0",
@@ -961,7 +960,8 @@
     "research/between_site_method_assessment/methods_inventory.csv": "7ac51b0b2af4e7c58fb2a36618a69cad2449ab8aadf70950b9266e593c867ae0",
     "research/between_site_method_assessment/pilot_error_diagnostics.csv": "fdc8b583eaa853990a9a1aaa99de818f81efef7c219ec5d501e0198d36ccbd22",
     "research/between_site_method_assessment/assessment_manifest.json": "3a04730a233f44c2fdf81e92e21082e911cd67f7aeed5cb2625da0dc15192d2c",
-    "research/between_site_method_assessment/assessment.md": "676a693a824abf9792138b786b631e779752fdc11819702254f4e7fc78b2725e",
+    "research/between_site_method_assessment/supplementary_technical_assessment.md": "3b2f9b52a45a8d4ae6e1534a845be63796b81f3b5b979164a816e3842845caa4",
+    "research/between_site_method_assessment/assessment.md": "53450d5c38f8378df5cb06e9757843bc081db7ecb696e8fa073c25aeeed2e461",
     "research/between_site_method_assessment/pilot_coverage_by_setting.csv": "1f0b79b4eb19f02c19f8b5beb5b20a7237b4aae14f98448d052711cb7edb5f1e",
     "docs/project_proposal.pdf": "ea7dd41d38da404204c3dd1bf899e89859c001d5a064856185570e1f4aff788b"
   },
@@ -973,10 +973,10 @@
     "results/preprocessing/preprocessing_audit.json": "08b134d1a560341d5a541eba6c360a998b110e7421eaff0ef7b7fbd3e3a51910",
     "results/preprocessing/verified_dataset_description.csv": "8f0341e78fb383a3adf52f6030077c63ceb1859cfa5431a0cdacdc96f0c68b36",
     "results/preprocessing/autocorrelation_decay_summary.csv": "883a01d5cf4c93bb835b0e8dcf0bdc8a4b3ea04e23c09c29e004eb6b559a6e31",
-    "research/surrogate_validation/report.md": "00fdfdd832c26da230865d230a4a0ae489861395223ac456f00d51202120b296",
-    "research/between_site_method_assessment/assessment.md": "676a693a824abf9792138b786b631e779752fdc11819702254f4e7fc78b2725e",
+    "research/surrogate_validation/report.md": "af883f93d1fe76d734a2e302177f044c40d8cd1e54ab3589085634c44051b2d2",
+    "research/between_site_method_assessment/assessment.md": "53450d5c38f8378df5cb06e9757843bc081db7ecb696e8fa073c25aeeed2e461",
     "docs/project_proposal.pdf": "ea7dd41d38da404204c3dd1bf899e89859c001d5a064856185570e1f4aff788b",
-    "docs/templates/final_report.md": "80abe148d2d0edc8edd9419d37aa3d1bd5b184efcab2023f47d38e4dee05b488"
+    "docs/templates/final_report.md": "d3f80d64f1dd9592bd368c9ebc63191f7576b04d32813824efb4f412ef416ee7"
   },
   "figure_copies_sha256": {
     "figures/figure_1_between_site_contrasts.png": "b68a68ae573e89966138d25a2234bcfac31e50b1c067b3732a144dc73ede8c00",

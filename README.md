@@ -31,12 +31,13 @@ The primary calculations use JIDT's continuous Kraskov algorithm 1 estimators wi
 
 The implementation and exact elapsed-time exclusion have been checked, but statistical inference remains unresolved. Full-record subsampling failed synthetic calibration, and within-site surrogate testing stopped because null-method validity was not established. Numerical differences and sensitivity ranges are not statistically confirmed population differences or uncertainty intervals.
 
-Temporal autocorrelation, unequal deployment periods and seasonal coverage, different depths/local conditions, unequal sample sizes and one site per setting limit interpretation. The results do not establish geomorphic causation. Further details are in the [scientific report](deliverables/final_scientific_report.md) and [methodological assessment](research/between_site_method_assessment/assessment.md).
+Temporal autocorrelation, unequal deployment periods and seasonal coverage, different depths/local conditions, unequal sample sizes and one site per setting limit interpretation. The results do not establish geomorphic causation. Further details are in the [scientific report](final_scientific_report.md) and [methodological assessment](research/between_site_method_assessment/assessment.md).
 ## Documentation and outputs
 
 | Resource | Contents |
 |---|---|
-| [Scientific report](deliverables/final_scientific_report.md) | Motivation, hypotheses, findings, physical interpretation and limitations |
+| [Scientific report](final_scientific_report.md) | Motivation, hypotheses, findings, physical interpretation and limitations |
+| [Scientific report — Word](final_scientific_report.docx) | Editable manuscript export |
 | [Technical workflow](docs/analysis_workflow.md) | Authoritative reproduction guide, including primary-estimator settings, tie treatment and Java integration evidence |
 | [Original proposal](docs/project_proposal.pdf) | Seven-page project proposal, previously named information theory hw-2.pdf |
 | [Report template](docs/templates/final_report.md) | Manuscript narrative used by `src/consolidate_final_report.py`; numerical tables are filled from existing saved results |
@@ -68,7 +69,8 @@ Stable site ordering across sensitivity settings is descriptive evidence, not a 
 
 | Directory | Contents |
 |---|---|
-| `deliverables/` | Final manuscript and selected figures |
+| `final_scientific_report.md`, `final_scientific_report.docx` | Final manuscript in Markdown and Word |
+| `deliverables/` | Selected figures, presentation and supporting result copies |
 | `data/raw/` | Original buoy files and metadata |
 | `data/processed/` | Cleaned concurrent datasets |
 | `results/` | Primary estimates, sensitivity, preprocessing/ACF audits and exploratory figures |
@@ -103,7 +105,7 @@ From the repository root, with `.venv` created as above:
 .venv/bin/python src/consolidate_final_report.py
 ```
 
-This regenerates `deliverables/final_scientific_report.md`, its Word copy, supporting table copies and the report manifest. It reads the existing primary/sensitivity results, comparison tables, dataset metadata, report template and selected PNG/PDF figures. Those inputs are included in the repository. It does **not** regenerate the figures, rerun MI/CMI or perform statistical testing. Java is not required for this report-only command.
+This regenerates `final_scientific_report.md`, its Word copy, supporting table copies and the report manifest. It reads the existing primary/sensitivity results, comparison tables, dataset metadata, report template and selected PNG/PDF figures. Those inputs are included in the repository. It does **not** regenerate the figures, rerun MI/CMI or perform statistical testing. Java is not required for this report-only command.
 
 ### Rebuild figures and report from saved results
 

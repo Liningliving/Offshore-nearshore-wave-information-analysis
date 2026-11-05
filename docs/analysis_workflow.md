@@ -1,6 +1,6 @@
 # Technical workflow and reproducibility
 
-This document explains implementation and verification. Scientific findings and interpretation belong in the [scientific report](../deliverables/final_scientific_report.md); analysis scope and limitations are summarized in the [root README](../README.md#limitations). The former primary-information report's unique technical details are consolidated here; its duplicate results table and scientific discussion are omitted.
+This document explains implementation and verification. Scientific findings and interpretation belong in the [scientific report](../final_scientific_report.md); analysis scope and limitations are summarized in the [root README](../README.md#limitations). The former primary-information report's unique technical details are consolidated here; its duplicate results table and scientific discussion are omitted.
 
 ## 1. Environment and pinned JIDT build
 
@@ -47,7 +47,7 @@ Current results are already saved. The commands below regenerate their individua
 | Reproduce historical sensitivity calculations | `.venv/bin/python src/sensitivity_analysis.py` | results/sensitivity_analysis/ |
 | Summarize saved sensitivity results | `.venv/bin/python src/report_sensitivity_analysis.py` | Same directory |
 | Generate selected presentation figures | `.venv/bin/python src/make_presentation_figures.py` | deliverables/figures/ |
-| Assemble the scientific report | `.venv/bin/python src/consolidate_final_report.py` | deliverables/ |
+| Assemble the scientific report | `.venv/bin/python src/consolidate_final_report.py` | Root Markdown/Word reports; supporting copies and manifest in deliverables/ |
 | Check implementation | `.venv/bin/python -m unittest discover -s tests` | Temporary numerical/Java test evidence |
 
 For a deliberate numerical rerun, after obtaining/verifying the pinned JIDT checkout, the main calculation order is:

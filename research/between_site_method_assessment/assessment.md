@@ -30,4 +30,4 @@ The main analysis remains quality control, JIDT estimation, direct comparison, p
 
 ## Supporting records
 
-The [technical supplement](supplementary_technical_assessment.md), [coverage table](pilot_coverage_by_setting.csv), [error diagnostics](pilot_error_diagnostics.csv), [methods inventory](methods_inventory.csv) and [historical audit manifest](assessment_manifest.json) preserve the evidence. Code and numerical outputs are unchanged. See the [final scientific report](../../deliverables/final_scientific_report.md) for the scientific findings and limitations.
+The [technical supplement](supplementary_technical_assessment.md), [coverage table](pilot_coverage_by_setting.csv), [error diagnostics](pilot_error_diagnostics.csv), [methods inventory](methods_inventory.csv) and [historical audit manifest](assessment_manifest.json) preserve the evidence. Code and numerical outputs are unchanged. See the [final scientific report](../../final_scientific_report.md) for the scientific findings and limitations.

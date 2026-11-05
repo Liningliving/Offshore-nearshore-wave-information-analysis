@@ -6,7 +6,7 @@
 
 **Do not report wave-data confidence intervals or p-values with the current implementation.** One candidate between-site procedure was evaluated on synthetic records and failed its initial calibration screen. No wave-data intervals or tests were produced. Established subsampling frameworks exist, but this assessment did not establish a practical, adequately justified procedure covering all three current fixed-k KSG MI/CMI contrasts, temporal dependence, irregular gaps and finite-sample bias. This is not a claim that valid inference is impossible.
 
-No new inference procedure, larger Monte Carlo study, JIDT calculation, wave confidence interval or wave p-value was implemented during this assessment. The code audit and diagnostics below use only saved pilot results. The final project therefore reports descriptive between-site contrasts, without further calibration or additional statistical methods. See the [final scientific report](../../deliverables/final_scientific_report.md).
+No new inference procedure, larger Monte Carlo study, JIDT calculation, wave confidence interval or wave p-value was implemented during this assessment. The code audit and diagnostics below use only saved pilot results. The final project therefore reports descriptive between-site contrasts, without further calibration or additional statistical methods. See the [final scientific report](../../final_scientific_report.md).
 
 ## 1. What was actually attempted
 
