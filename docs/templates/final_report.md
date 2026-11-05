@@ -115,9 +115,7 @@ The small period CMI has several possible explanations. Offshore height may alre
 
 ### 7.1 Inference was investigated, but remains unestablished
 
-No adequately validated procedure produced wave-data confidence intervals or p-values for the three site differences. The earlier whole-record physical-time subsampling pilot undercovered in some synthetic settings, with nominal 95% coverage as low as 8/12. Its candidate synthetic intervals are not wave uncertainty. Within-site surrogate testing also stopped because the proposed null procedures did not adequately address conditional dependence, autocorrelation and missing timestamps. Within-site significance, even if established, would not itself test a between-site difference.
-
-The final reporting decision is to **retain the descriptive full-deployment analysis** and stop inferential development at this stage. Implementation validation means the requested estimators and elapsed-time exclusion were applied correctly; it does not supply statistical validation of population differences. None of H1–H3 is formally accepted or rejected here.
+One candidate between-site interval method was investigated but did not pass its initial synthetic calibration, so no validated wave-data confidence intervals or p-values are reported. Within-site surrogate testing also remained unresolved and would not itself test the difference between sites. The full-deployment estimates are retained as descriptive comparisons; none of H1–H3 is formally accepted or rejected. The methodological note in `research/between_site_method_assessment/assessment.md` summarises the supplementary investigation.
 
 ### 7.2 Limits on interpretation
 
