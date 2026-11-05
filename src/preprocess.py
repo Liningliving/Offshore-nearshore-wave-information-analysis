@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "raw_data"
+DATA = ROOT / "data/raw"
 ARCHIVE = "Wave_buoys_Observations_-_Australia_-_delayed_(National_Wave_Archive)"
 PAIRS = {
     "figure_eight_pools": ("Figure8Pools", "Port Kembla", ARCHIVE + ".csv"),
@@ -108,9 +108,9 @@ def prepare(name, token, station, filename):
                  gaps_longer_than_one_hour=len(gap_table),
                  largest_interval_hours=float(gaps.max()),
                  pearson_r=float(complete.Ho.corr(complete.Hn)))
-    complete.to_csv(ROOT / "outputs/cleaned" / f"{name}.csv", index=False)
-    gap_table.to_csv(ROOT / "outputs/results" / f"{name}_gaps.csv", index=False)
-    complete[["Ho", "Hn", "Tp_o", "theta_deg"]].describe().to_csv(ROOT / "outputs/results" / f"{name}_descriptive_statistics.csv")
+    complete.to_csv(ROOT / "data/processed" / f"{name}.csv", index=False)
+    gap_table.to_csv(ROOT / "results/preprocessing" / f"{name}_gaps.csv", index=False)
+    complete[["Ho", "Hn", "Tp_o", "theta_deg"]].describe().to_csv(ROOT / "results/preprocessing" / f"{name}_descriptive_statistics.csv")
     plot(name, complete, grid)
     return audit
 
@@ -118,7 +118,7 @@ def prepare(name, token, station, filename):
 # plot for statistical and visual inspection of the data
 def plot(name, data, grid):
     title = name.replace("_", " ").title()
-    destination = ROOT / "outputs/figures"
+    destination = ROOT / "results/exploratory_figures"
     plt.rcParams.update({"figure.dpi": 120, "axes.spines.top": False, "axes.spines.right": False})
     fig, ax = plt.subplots(figsize=(12, 4))
 
@@ -171,11 +171,11 @@ def plot(name, data, grid):
 
 
 def main():
-    for folder in ["cleaned", "figures", "results"]:
-        (ROOT / "outputs" / folder).mkdir(parents=True, exist_ok=True)
+    for folder in ["data/processed", "results/exploratory_figures", "results/preprocessing"]:
+        (ROOT / folder).mkdir(parents=True, exist_ok=True)
     audits = [prepare(name, *configuration) for name, configuration in PAIRS.items()]
-    (ROOT / "outputs/results/preprocessing_audit.json").write_text(json.dumps(audits, indent=2) + "\n")
-    pd.DataFrame([{k: v for k, v in audit.items() if not isinstance(v, dict)} for audit in audits]).to_csv(ROOT / "outputs/results/preprocessing_summary.csv", index=False)
+    (ROOT / "results/preprocessing/preprocessing_audit.json").write_text(json.dumps(audits, indent=2) + "\n")
+    pd.DataFrame([{k: v for k, v in audit.items() if not isinstance(v, dict)} for audit in audits]).to_csv(ROOT / "results/preprocessing/preprocessing_summary.csv", index=False)
     for audit in audits:
         print(f"{audit['site']}: N={audit['usable_rows']}, Pearson r={audit['pearson_r']:.4f}")
 

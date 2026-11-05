@@ -1,0 +1,3 @@
+site,buoy_pair,offshore_sampling_hours,nearshore_sampling_minutes,paired_nominal_sampling_hours,complete_QC_concurrent_N,first_paired_UTC,last_paired_UTC,first_paired_AEST,last_paired_AEST,paired_date_range_AEST,raw_offshore_rows,raw_nearshore_rows,missing_hourly_slots_within_paired_span,gaps_longer_than_one_hour
+figure_eight_pools,Wollongong (Port Kembla)–Figure Eight Pools,1,30,1,6867,2016-12-06 02:00:00+00:00,2017-12-11 10:00:00+00:00,2016-12-06 12:00:00+10:00,2017-12-11 20:00:00+10:00,06 Dec 2016–11 Dec 2017,7436,17777,2022,377
+stockton,Sydney–Stockton,1,30,1,10522,2019-12-06 01:00:00+00:00,2021-04-08 23:00:00+00:00,2019-12-06 11:00:00+10:00,2021-04-09 09:00:00+10:00,06 Dec 2019–09 Apr 2021,10679,23518,1237,264

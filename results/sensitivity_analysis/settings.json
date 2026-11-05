@@ -1,0 +1,58 @@
+{
+  "baseline": {
+    "k": 4,
+    "theiler_hours": 45,
+    "lag_hours": 0
+  },
+  "k_values": [
+    3,
+    4,
+    6,
+    8
+  ],
+  "lag_hours": [
+    0,
+    0.5,
+    1,
+    2
+  ],
+  "theiler_hours": [
+    30,
+    45,
+    60
+  ],
+  "normalise": true,
+  "norm_type": "MAX_NORM",
+  "noise_std": 1e-08,
+  "noise_seed": 20261031,
+  "use_gpu": false,
+  "algorithm": "KSG1",
+  "build": {
+    "repository": "https://github.com/jlizier/jidt",
+    "commit": "1ca832235e64ae5b3a482dc0ead6f9b2ff2a0456",
+    "commit_url": "https://github.com/jlizier/jidt/commit/1ca832235e64ae5b3a482dc0ead6f9b2ff2a0456",
+    "commit_date": "2026-08-03T12:27:32+10:00",
+    "build_xml_version": "1.6.1 (source snapshot; distinguish by commit, not release label)",
+    "source_unmodified": true,
+    "java_source_files": 250,
+    "compile_command": [
+      "javac",
+      "--release",
+      "8",
+      "-encoding",
+      "UTF-8",
+      "-d",
+      "/Users/attie/Desktop/Information theory/ass2/lib/jidt-official/classes",
+      "@/Users/attie/Desktop/Information theory/ass2/lib/jidt-official/sources.args"
+    ],
+    "javac_version": "javac 21.0.12.1",
+    "jar": "lib/jidt-official/infodynamics.jar",
+    "jar_sha256": "48ef14fbbb4f69397a1ccdc4a3963d6a1db85efa52d125327741dc7e6286a0f0",
+    "cpu_only": true,
+    "fallback_jar": "/Users/attie/Desktop/Information theory/jidt-1.6.1/infodynamics.jar"
+  },
+  "source_time_indices": "Actual elapsed offshore hours, same set ID 0 across segments; nearshore target times may be half-hourly",
+  "significance_tests_run": false,
+  "unique_java_datasets_and_settings": 28,
+  "reported_sensitivity_rows": 90
+}

@@ -1,0 +1,7 @@
+method,actually_run_between_sites,status
+Independent physical-time moving-window subsampling with separate-site root-N scaling,True,Failed initial calibration screen
+Ordinary i.i.d. or moving/stationary with-replacement bootstrap,False,Not run; duplicate-observation effects on KSG not resolved
+Site-label or individual-observation permutation,False,Not run; exchangeability and temporal assumptions not justified
+Fixed-b calibrated or studentized subsampling,False,Literature assessed; required limit/bias assumptions not established for current estimators
+Holmes–Nemenman variance extrapolation,False,Literature assessed; not directly validated for these dependent MI/CMI comparisons
+Step 8 within-site surrogate procedures,False,Separate within-site problem; not a direct between-site test

@@ -105,14 +105,14 @@ def main():
     args = parser.parse_args()
     if args.max_lag_hours < SUSTAIN_HOURS:
         parser.error("Maximum lag must cover the sustained-crossing interval")
-    results = ROOT / "outputs/results"
-    figures = ROOT / "outputs/figures"
+    results = ROOT / "results/preprocessing"
+    figures = ROOT / "results/exploratory_figures"
     results.mkdir(parents=True, exist_ok=True)
     figures.mkdir(parents=True, exist_ok=True)
     summaries, diagnostics = [], []
     curves = {}
     for site in SITES:
-        data = pd.read_csv(ROOT / f"outputs/cleaned/{site}.csv")
+        data = pd.read_csv(ROOT / f"data/processed/{site}.csv")
         indices = hourly_indices(data.timestamp_utc)
         acf = lagged_acf(data, args.max_lag_hours)
         acf.to_csv(results / f"{site}_autocorrelation.csv", index=False)

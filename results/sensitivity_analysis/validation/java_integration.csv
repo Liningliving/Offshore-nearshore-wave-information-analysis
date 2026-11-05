@@ -1,0 +1,13 @@
+index_unit_hours,window_hours,window_ticks,k,n,mi_pass,period_cmi_pass,direction_cmi_pass,boundary_and_gap_masks_pass
+1.0,30,30,4,240,true,true,true,true
+1.0,45,45,3,240,true,true,true,true
+1.0,45,45,4,240,true,true,true,true
+1.0,45,45,6,240,true,true,true,true
+1.0,45,45,8,240,true,true,true,true
+1.0,60,60,4,240,true,true,true,true
+0.5,30,60,4,480,true,true,true,true
+0.5,45,90,3,480,true,true,true,true
+0.5,45,90,4,480,true,true,true,true
+0.5,45,90,6,480,true,true,true,true
+0.5,45,90,8,480,true,true,true,true
+0.5,60,120,4,480,true,true,true,true

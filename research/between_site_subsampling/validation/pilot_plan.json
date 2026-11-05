@@ -1,0 +1,12 @@
+{
+  "status": "pilot_not_yet_accepted",
+  "nominal_coverage": 0.95,
+  "pilot_failure_rule": "Any scenario/measure empirical coverage below 0.80, or runtime/time metadata failure, rejects this candidate. Passing this screen alone requires expanded calibration, not automatic wave inference.",
+  "method": "paired independent physical-time moving-window subsampling, no duplicated rows within a draw; root-N error scaling separately by site",
+  "fraction_of_each_record_span": 0.25,
+  "resamples_per_record_pair": 39,
+  "replicates_per_scenario": 12,
+  "seed": 20261102,
+  "estimator_noise_seed": 20261031,
+  "main_wave_inference_run": false
+}

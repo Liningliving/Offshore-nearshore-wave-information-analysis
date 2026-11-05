@@ -1,0 +1,9 @@
+site,lag_hours,sample_size,source_hourly,target_minute,matching_exact
+figure_eight_pools,0.0,6867,True,0,True
+figure_eight_pools,0.5,6873,True,30,True
+figure_eight_pools,1.0,6863,True,0,True
+figure_eight_pools,2.0,6863,True,0,True
+stockton,0.0,10522,True,0,True
+stockton,0.5,10524,True,30,True
+stockton,1.0,10521,True,0,True
+stockton,2.0,10522,True,0,True

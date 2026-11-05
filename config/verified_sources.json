@@ -1,0 +1,8 @@
+{
+  "sources_sha256": {
+    "results/primary_information/primary_information_summary.csv": "6abb08e3891d36013a8ddbb31dd6e7111ea08c984247c2d578429a650c49511e",
+    "results/sensitivity_analysis/all_sensitivity_results.csv": "8c5a147dee787ed65ba7c3efed617ef17951b0f4cf24a8a2bfc07102c01109be",
+    "data/processed/figure_eight_pools.csv": "02b1b6113c013d7d943f4752d3d32e3c1b63fbce436b9b6577d252ff2a26ceae",
+    "data/processed/stockton.csv": "246a60fbd4bcaaae4417bb90d8e9394b2ccef09bfef61ab901fe4ba6ca012c97"
+  }
+}

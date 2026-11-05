@@ -3,3 +3,9 @@ __pycache__/
 *.py[cod]
 .venv/
 .ipynb_checkpoints/
+
+# Regenerable official JIDT checkout and Java build files
+tools/jidt/source/
+tools/jidt/build/classes/
+tools/jidt/build/sources.args
+*.class

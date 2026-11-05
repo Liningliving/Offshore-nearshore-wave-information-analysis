@@ -1,0 +1,21 @@
+{
+  "exact_45_hour_integration_passed": true,
+  "observations": 241,
+  "segments": 4,
+  "all_observations_retained": true,
+  "all_stored_time_indices_match": true,
+  "all_set_ids_zero": true,
+  "k": 4,
+  "window_hours": 45,
+  "boundary_hours_tested": [44,45,46],
+  "joint_and_marginal_searches_verified": true,
+  "actual_k_nearest_searches_verified": true,
+  "unordered_pairs_checked_per_calculator": 28920,
+  "mismatches": 0,
+  "different_set_short_gap_bypass_verified_mi_and_cmi": true,
+  "singleton_segment_retained": true,
+  "direction_dimensions": [2,1,1],
+  "mi_nats": 0.54421536406284240,
+  "cmi_period_nats": 0.017996626906752410,
+  "cmi_direction_nats": -0.024156013462694803
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "site": "figure_eight_pools",
+    "observations": 6867,
+    "segments": 378,
+    "all_Java_time_indices_match": true,
+    "all_Java_set_ids_zero": true,
+    "no_rows_removed": true
+  },
+  {
+    "site": "stockton",
+    "observations": 10522,
+    "segments": 265,
+    "all_Java_time_indices_match": true,
+    "all_Java_set_ids_zero": true,
+    "no_rows_removed": true
+  }
+]

@@ -1,0 +1,10 @@
+scenario,measure,true_delta_nats,true_delta_bits
+equal_information_same_persistence,height,0.0,0.0
+equal_information_same_persistence,period,-0.0,-0.0
+equal_information_same_persistence,direction,-0.0,-0.0
+equal_information_different_persistence,height,0.0,0.0
+equal_information_different_persistence,period,-0.0,-0.0
+equal_information_different_persistence,direction,-0.0,-0.0
+known_information_difference,height,0.27662160523477675,0.3990806180749569
+known_information_difference,period,0.07724952559732776,0.1114475074902898
+known_information_difference,direction,0.11726854856759626,0.16918275347071768

@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "baseline_reproduction_passed": true,
+  "baseline_max_abs_difference_nats": 2.220446049250313e-16,
+  "half_hourly_matching_passed": true,
+  "java_configurations_tested": 12,
+  "physical_windows_hours": [
+    30,
+    45,
+    60
+  ],
+  "synthetic_index_units_hours": [
+    1,
+    0.5
+  ],
+  "real_source_index_units_hours": 1,
+  "direction_joint_dimensions": [
+    2,
+    1,
+    1
+  ],
+  "noise_seed": 20261031,
+  "jidt_commit": "1ca832235e64ae5b3a482dc0ead6f9b2ff2a0456",
+  "java_sources_sha256": {
+    "ElapsedHourLoader.java": "71e893f069ef848b47aea25fecad2e3dd454d1caf1eff04d1face97b4d0bab2b",
+    "Step7Settings.java": "60020c195fb566e7bda6940b55a26dea307a03471d2c63f41a8df0832698b499",
+    "Step9Settings.java": "c4910e7c37b0990c41ff1b46d801548396cb377aee9c52485476f97bb4f74b71",
+    "Step9Measures.java": "feda8ef4bc0b3bcdff09ae8edcc168883d213dbc041b9de6a232c5f565e80bb0",
+    "Step9Integration.java": "ddc1ad8c1a54c874abc9b892f80bcf68d1cc4e95a191d4a71df67b61db759874"
+  }
+}

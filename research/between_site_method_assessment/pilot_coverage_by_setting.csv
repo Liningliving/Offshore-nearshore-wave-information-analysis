@@ -1,0 +1,10 @@
+scenario,setting,measure,experiments,true_delta_bits,covered_experiments,coverage,zero_exclusions,false_positive_rate,known_difference_detection_rate,nominal_coverage,synthetic_only
+equal_information_same_persistence,"Equal information; AR(0.90), AR(0.90)",height,12,0.0,11,0.9166666666666666,1,0.08333333333333333,,0.95,True
+equal_information_same_persistence,"Equal information; AR(0.90), AR(0.90)",period,12,-0.0,10,0.8333333333333334,2,0.16666666666666666,,0.95,True
+equal_information_same_persistence,"Equal information; AR(0.90), AR(0.90)",direction,12,-0.0,8,0.6666666666666666,4,0.3333333333333333,,0.95,True
+equal_information_different_persistence,"Equal information; AR(0.80), AR(0.97)",height,12,0.0,8,0.6666666666666666,4,0.3333333333333333,,0.95,True
+equal_information_different_persistence,"Equal information; AR(0.80), AR(0.97)",period,12,-0.0,9,0.75,3,0.25,,0.95,True
+equal_information_different_persistence,"Equal information; AR(0.80), AR(0.97)",direction,12,-0.0,10,0.8333333333333334,2,0.16666666666666666,,0.95,True
+known_information_difference,"Known difference; AR(0.80), AR(0.97)",height,12,0.39908061807495687,10,0.8333333333333334,12,,1.0,0.95,True
+known_information_difference,"Known difference; AR(0.80), AR(0.97)",period,12,0.11144750749028971,10,0.8333333333333334,3,,0.25,0.95,True
+known_information_difference,"Known difference; AR(0.80), AR(0.97)",direction,12,0.1691827534707176,11,0.9166666666666666,8,,0.6666666666666666,0.95,True

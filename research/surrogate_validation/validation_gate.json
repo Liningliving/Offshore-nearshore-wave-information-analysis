@@ -1,0 +1,159 @@
+{
+  "main_wave_tests_authorized_by_validation": false,
+  "wave_surrogates_run": 0,
+  "main_B": 0,
+  "status": "stopped_before_wave_pilot_and_main",
+  "B_synthetic_pilot": 20,
+  "synthetic_replicates": 16,
+  "surrogate_seed_base": 20261101,
+  "estimator_noise_seed": 20261031,
+  "source_commit": "1ca832235e64ae5b3a482dc0ead6f9b2ff2a0456",
+  "reasons": [
+    "No admissible all-observation, mask-preserving circular shift for either wave record; block-pattern rearrangements leave aligned observations fixed.",
+    "Runge-style pointwise local permutation does not preserve predictor temporal structure; calibration must be accepted before any conditional-significance claims."
+  ],
+  "synthetic_summary": [
+    {
+      "measure": "direction",
+      "rho": 0.0,
+      "truth": "dependent",
+      "tests": 16,
+      "rejections": 16,
+      "rejection_fraction": 1.0,
+      "mean_source_acf": 0.0017764867930784,
+      "mean_surrogate_acf": 0.0048932295237265
+    },
+    {
+      "measure": "direction",
+      "rho": 0.0,
+      "truth": "null_hypothesis",
+      "tests": 16,
+      "rejections": 2,
+      "rejection_fraction": 0.125,
+      "mean_source_acf": 0.0017764867930784,
+      "mean_surrogate_acf": 0.0034608976176239
+    },
+    {
+      "measure": "direction",
+      "rho": 0.98,
+      "truth": "dependent",
+      "tests": 16,
+      "rejections": 13,
+      "rejection_fraction": 0.8125,
+      "mean_source_acf": 0.932333536404376,
+      "mean_surrogate_acf": 0.329076909601571
+    },
+    {
+      "measure": "direction",
+      "rho": 0.98,
+      "truth": "null_hypothesis",
+      "tests": 16,
+      "rejections": 2,
+      "rejection_fraction": 0.125,
+      "mean_source_acf": 0.932333536404376,
+      "mean_surrogate_acf": 0.3299968520198026
+    },
+    {
+      "measure": "mi",
+      "rho": 0.0,
+      "truth": "dependent",
+      "tests": 16,
+      "rejections": 16,
+      "rejection_fraction": 1.0,
+      "mean_source_acf": -0.0024799814428174,
+      "mean_surrogate_acf": -0.0026404744685064
+    },
+    {
+      "measure": "mi",
+      "rho": 0.0,
+      "truth": "null_hypothesis",
+      "tests": 16,
+      "rejections": 0,
+      "rejection_fraction": 0.0,
+      "mean_source_acf": -0.0024799814428174,
+      "mean_surrogate_acf": -0.0026062789072941
+    },
+    {
+      "measure": "mi",
+      "rho": 0.98,
+      "truth": "dependent",
+      "tests": 16,
+      "rejections": 12,
+      "rejection_fraction": 0.75,
+      "mean_source_acf": 0.9756602593330224,
+      "mean_surrogate_acf": 0.9744785171610412
+    },
+    {
+      "measure": "mi",
+      "rho": 0.98,
+      "truth": "null_hypothesis",
+      "tests": 16,
+      "rejections": 0,
+      "rejection_fraction": 0.0,
+      "mean_source_acf": 0.9756602593330224,
+      "mean_surrogate_acf": 0.9744816434140172
+    },
+    {
+      "measure": "period",
+      "rho": 0.0,
+      "truth": "dependent",
+      "tests": 16,
+      "rejections": 16,
+      "rejection_fraction": 1.0,
+      "mean_source_acf": -0.0010854189941738,
+      "mean_surrogate_acf": -0.0036707224194682
+    },
+    {
+      "measure": "period",
+      "rho": 0.0,
+      "truth": "null_hypothesis",
+      "tests": 16,
+      "rejections": 1,
+      "rejection_fraction": 0.0625,
+      "mean_source_acf": -0.0010854189941738,
+      "mean_surrogate_acf": -0.0035738238622646
+    },
+    {
+      "measure": "period",
+      "rho": 0.98,
+      "truth": "dependent",
+      "tests": 16,
+      "rejections": 13,
+      "rejection_fraction": 0.8125,
+      "mean_source_acf": 0.9738694893686974,
+      "mean_surrogate_acf": 0.3985905205631938
+    },
+    {
+      "measure": "period",
+      "rho": 0.98,
+      "truth": "null_hypothesis",
+      "tests": 16,
+      "rejections": 1,
+      "rejection_fraction": 0.0625,
+      "mean_source_acf": 0.9738694893686974,
+      "mean_surrogate_acf": 0.3974204507383393
+    }
+  ],
+  "wave_mask_audit": [
+    {
+      "site": "figure_eight_pools",
+      "observations": 6867,
+      "hourly_span": 8889,
+      "minimum_circular_shift_hours": 180,
+      "mask_preserving_nonzero_shifts": 0,
+      "weekly_mask_matched_movable_observations": 0,
+      "weekly_mask_matched_fixed_observations": 6867,
+      "mask_matched_blocks_note": "Same missingness-pattern blocks may be exchanged; all singleton-pattern blocks and the partial final block remain fixed, so this is not a validated full-record independence null."
+    },
+    {
+      "site": "stockton",
+      "observations": 10522,
+      "hourly_span": 11759,
+      "minimum_circular_shift_hours": 180,
+      "mask_preserving_nonzero_shifts": 0,
+      "weekly_mask_matched_movable_observations": 834,
+      "weekly_mask_matched_fixed_observations": 9688,
+      "mask_matched_blocks_note": "Same missingness-pattern blocks may be exchanged; all singleton-pattern blocks and the partial final block remain fixed, so this is not a validated full-record independence null."
+    }
+  ]
+}

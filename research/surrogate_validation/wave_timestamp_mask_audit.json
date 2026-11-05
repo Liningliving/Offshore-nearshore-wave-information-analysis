@@ -1,0 +1,22 @@
+[
+  {
+    "site": "figure_eight_pools",
+    "observations": 6867,
+    "hourly_span": 8889,
+    "minimum_circular_shift_hours": 180,
+    "mask_preserving_nonzero_shifts": 0,
+    "weekly_mask_matched_movable_observations": 0,
+    "weekly_mask_matched_fixed_observations": 6867,
+    "mask_matched_blocks_note": "Same missingness-pattern blocks may be exchanged; all singleton-pattern blocks and the partial final block remain fixed, so this is not a validated full-record independence null."
+  },
+  {
+    "site": "stockton",
+    "observations": 10522,
+    "hourly_span": 11759,
+    "minimum_circular_shift_hours": 180,
+    "mask_preserving_nonzero_shifts": 0,
+    "weekly_mask_matched_movable_observations": 834,
+    "weekly_mask_matched_fixed_observations": 9688,
+    "mask_matched_blocks_note": "Same missingness-pattern blocks may be exchanged; all singleton-pattern blocks and the partial final block remain fixed, so this is not a validated full-record independence null."
+  }
+]

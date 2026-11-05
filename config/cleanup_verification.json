@@ -1,0 +1,12 @@
+{
+  "retained_scientific_files_unchanged": 794,
+  "removed_files": 372,
+  "removed_bytes": 9980660,
+  "data_and_existing_numerical_results_unchanged": true,
+  "new_information_estimates": 0,
+  "unit_tests_passed": 18,
+  "unit_tests_failed": 0,
+  "selected_figures_generation_checked_in_temporary_directory": true,
+  "working_navigation_links_checked": 43,
+  "archive_directory_removed": true
+}

@@ -1,0 +1,4 @@
+measure,sample_size,x_dimensions,y_dimensions,condition_dimensions,nats,bits,k,NORMALISE,NORM_TYPE,DYN_CORR_EXCL,USE_GPU,noise_std,noise_seed,threads
+I(Ho;Hn),6867,1,1,0,1.0729505211889983,1.5479403960385965,4,true,MAX_NORM,45,false,1e-8,20261031,1
+I(Tp_o;Hn|Ho),6867,1,1,1,0.021167053372764810,0.030537602931119800,4,true,MAX_NORM,45,false,1e-8,20261031,1
+I((Dx Dy);Hn|Ho),6867,2,1,1,0.067237007315666730,0.097002497018527350,4,true,MAX_NORM,45,false,1e-8,20261031,1

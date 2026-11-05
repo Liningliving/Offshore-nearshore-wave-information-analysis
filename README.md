@@ -1,37 +1,64 @@
-# Wave dependence: preprocessing and exploration
+# Offshore–nearshore wave information project
 
+**Tutor: start with this README.** Follow the review order below for the final report, scientific figures, numerical evidence and methodological limitations. No software setup or analysis execution is needed to inspect the findings.
 
+## Suggested review order
 
-Run `python3 src/preprocess.py` from this directory (or run the script by its absolute path). Dependencies for these steps are in `requirements.txt`. Original input files are read without modification. Running the script again replaces the generated outputs.
+| Order | What to review | Where |
+|---|---|---|
+| 1 | Scientific question, methods, findings and limitations | [Final Word report](deliverables/final_scientific_report.docx) or [Markdown report](deliverables/final_scientific_report.md) |
+| 2 | Direct site contrasts, temporal sensitivity and height scatterplots | [Figure 1: site contrasts](deliverables/figures/figure_1_between_site_contrasts.pdf), [Figure 2: temporal sensitivity](deliverables/figures/figure_2_temporal_sensitivity.pdf), [Figure 3: wave heights](deliverables/figures/figure_3_wave_heights.pdf) |
+| 3 | Sampling intervals, usable N and deployment coverage | [Verified dataset description](results/preprocessing/verified_dataset_description.csv), report Table 1 |
+| 4 | Six estimates and three exact site differences | [Primary results](results/primary_information/primary_information_summary.csv), [contrasts](results/primary_information/between_site_contrasts.csv) |
+| 5 | Quality filtering, timestamp handling and temporal robustness | [Preprocessing audit](results/preprocessing/preprocessing_audit.json), [sensitivity results](results/sensitivity_analysis/all_sensitivity_results.csv) |
+| 6 | What remains unestablished statistically | [Assessment status](deliverables/assessment_status.md), [methodological assessment](research/between_site_method_assessment/assessment.md) |
+| Optional | Implementation and reproduction | [Code guide](src/README.md), [workflow](docs/analysis_workflow.md), tests/ |
 
-## Method
+**Interpretive scope:** these are descriptive comparisons of the two deployment records. No adequately validated wave-data p-values or confidence intervals were established. The final report omits k-sensitivity analysis from its main findings.
 
-Inputs are read from `raw_data/`. The Port Kembla archive export is paired with Figure Eight Pools; the Sydney export ending `-2.csv` is paired with Stockton. Offshore CSV metadata lines beginning with `#` are skipped. Numeric blanks become missing values. Nearshore time is fixed AEST (UTC+10, with no daylight saving); offshore time is UTC. Both are converted to UTC before an exact, one-to-one timestamp join. Duplicate timestamps cause an error instead of silent removal.
+## Folder roles
 
-Only nearshore `Qflag == 1` and offshore `WAVE_quality_control == 1` are retained. The pipeline then drops concurrent rows missing required variables, sorts timestamps, and checks finite values, nonnegative heights and strictly positive peak periods, and directions in [0, 360]. These range checks raise errors for investigation rather than automatically removing observations. There is no outlier trimming or interpolation.
+The first inspection should focus on deliverables/ and results/. Data are retained separately; research/ contains supporting methodological investigations, while src/, tests/, config/ and tools/ support reproduction.
 
-The common wave-height definition is time-domain significant height: offshore `WHTH` maps to `Ho`, and nearshore `Hsig` maps to `Hn`. These are matching time-domain significant heights (mean of the highest third of individual waves), not spectral significant height Hm0 = 4 sqrt(m0). [Kinsela et al. (2024), Table 4 and Fig. 4](https://www.nature.com/articles/s41597-023-02865-x) distinguish the definitions and compare Hm0 offshore–nearshore. Offshore spectral height `WSSH` is entirely empty in both current exports, so nearshore spectral height `Hm0` is not used here. Reproducing that spectral comparison requires populated offshore `WSSH` and nearshore `Hm0`; do not mix `WHTH` with `Hm0` or relabel time-domain heights as Hm0. The audit records the selected columns and offshore spectral availability. Offshore `WPPE` maps to `Tp_o` in seconds, and `WPDI` maps to `theta_deg` in degrees true. `Dx = cos(theta)` and `Dy = sin(theta)` use radians internally and together represent one two-dimensional direction variable for subsequent CMI estimation. The nearshore README quality summaries and offshore CSV QC metadata document the quality flags. Offshore metadata define `WPPE` as the spectral peak period, `WPDI` as the wave-from direction at the spectral peak relative to true north, and flag 1 as Good (passed documented required QC tests).
+```text
+ass2/
+├── deliverables/        Final manuscript and selected figures
+├── data/
+│   ├── raw/             Original input files
+│   └── processed/       Two cleaned, quality-filtered datasets
+├── results/
+│   ├── primary_information/
+│   ├── sensitivity_analysis/
+│   ├── preprocessing/   Preprocessing and autocorrelation audits
+│   └── exploratory_figures/
+├── research/            Statistical-method investigations and pilots
+├── src/                 Python code and java/ application adapters
+├── tests/               Numerical, timestamp and Java integration checks
+├── docs/                Original proposal, detailed workflow and report template
+├── config/              Dependencies, source hashes and historical path aliases
+└── tools/jidt/          Pinned official source and compiled Java library
+```
 
-## Outputs
+## Main numerical sources
 
-- `outputs/cleaned/{site}.csv`: concurrent complete observations, UTC timestamps, four analysis variables, both quality flags, and the two direction components.
-- `outputs/results/preprocessing_audit.json`: input paths, quality-flag counts, duplicate counts, QC losses, unmatched counts, missing-variable losses, coverage, and Pearson correlation. For each QC-retained source, `*_without_raw_counterpart` counts timestamps absent from the other raw file, while `*_counterpart_excluded_by_qc` counts present counterparts excluded by the QC rule. Only `*_qc_excluded` counts exclusions within that source. These two-sided counts are not sequential losses from one dataset; a QC exclusion can include missing or suspect records, not just failed tests.
-- `outputs/results/preprocessing_summary.csv`: one summary row per site.
-- `outputs/results/{site}_descriptive_statistics.csv`: numeric descriptions; direction statistics are ordinary linear summaries, not circular statistics.
-- `outputs/results/{site}_gaps.csv`: intervals greater than one hour in the retained dataset. These can reflect QC exclusion, input gaps, or missing required measurements.
-- `outputs/figures/{site}_time_series.png`: matched heights, with line breaks at missing hourly slots.
-- `outputs/figures/{site}_scatterplots.png`: height relationship, Pearson correlation, and period/direction colouring.
-- `outputs/figures/{site}_distributions.png`: height, period, and direction histograms.
-- `outputs/figures/{site}_coverage_gaps.png`: daily hourly coverage and elapsed-time distribution.
+| Purpose | File |
+|---|---|
+| Six primary MI/CMI estimates | [primary_information_summary.csv](results/primary_information/primary_information_summary.csv) |
+| Three descriptive site differences | [between_site_contrasts.csv](deliverables/between_site_contrasts.csv) |
+| Saved sensitivity results | [all_sensitivity_results.csv](results/sensitivity_analysis/all_sensitivity_results.csv) |
+| Sampling and preprocessing audit | [preprocessing_audit.json](results/preprocessing/preprocessing_audit.json) |
+| Outstanding assessment limitations | [assessment_status.md](deliverables/assessment_status.md) |
 
-Coverage is measured against UTC clock-hour timestamps within the first and last retained observations (ceil/floor bounds). The audit reports whether all retained timestamps lie on this grid and counts off-grid rows separately. Missing slots are counted by timestamp set difference, so off-grid rows cannot falsely fill hourly slots or produce negative missing counts. Off-grid observations remain in the cleaned output and time-series plot. Gap durations use actual elapsed time, irrespective of grid alignment. Boundary days have partial denominators. Empty hourly slots inserted for plotting contain only NaNs and do not change the saved observations. Pearson correlation is descriptive; no significance or causal interpretation is attached. The different observation periods and sample sizes need to be considered in the later comparison. MI/CMI estimation is a subsequent step and is not implemented by this script.
+The primary datasets contain **6,867 Figure Eight Pools** and **10,522 Stockton** observations. Heights are matching time-domain WHTH/Hsig, not spectral Hm0. The baseline is KSG1, k=4 and exact 45-hour Theiler exclusion. The final report omits k sensitivity; historical files remain available.
 
-## Temporal autocorrelation (step 6)
+## Optional: running the code
 
-Run `python3 src/autocorrelation.py` after preprocessing. This computes exact elapsed-hour, pairwise-complete ACFs for `Ho`, `Hn`, `Tp_o`, `Dx`, and `Dy`, without interpolation. It saves per-lag correlations and pair counts, decay summaries, ACF plots, timestamp mappings for JIDT, and `outputs/results/theiler_window_selection.json`. Off-grid timestamps cause an explicit error rather than silent rounding.
+From this directory, use the project virtual environment:
 
-See [the autocorrelation report](outputs/results/autocorrelation_report.md) for the definition, selection rule, numerical results and limitations. The selected site windows are 30 h (Figure Eight Pools) and 45 h (Stockton); the common baseline is 45 h, with planned sensitivity settings 0, 23, 45 and 90 h. These are an e-folding heuristic, not proof of independence.
+```sh
+.venv/bin/python -m unittest discover -s tests
+```
 
-`src/jidt_timing.py` prepares already aligned observations for later CPU JIDT MI/CMI using actual elapsed-hour indices across gaps and a shared observation-set ID within each site. It preserves `[Dx, Dy]` as a single two-dimensional variable. The helper requires JIDT's time-tracking API; runtime integration must be verified before future MI/CMI estimation.
+The [detailed workflow](docs/analysis_workflow.md) explains preprocessing, estimation and reporting commands. Running analysis entry points regenerates their corresponding products; this reorganization did not rerun the full analyses. Base dependencies are in requirements.txt; optional sets are documented in [config/](config/README.md).
 
-Run timing and ACF checks with `python3 -m unittest discover -s tests`.
+Historical paths in retained execution records are resolved by src/artifact_paths.py using config/legacy_paths.json. Superseded drafts, duplicate figure sets and disposable build caches have been removed. The final report, source data, scientific results and supporting inference evidence are retained.

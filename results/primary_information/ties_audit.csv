@@ -1,0 +1,13 @@
+site,variable_or_tuple,observations,distinct_values_or_tuples,rows_in_repeated_groups,duplicate_rows_beyond_first
+figure_eight_pools,Ho,6867,2227,6134,4640
+figure_eight_pools,Hn,6867,324,6822,6543
+figure_eight_pools,Tp_o,6867,51,6866,6816
+figure_eight_pools,direction,6867,190,6831,6677
+figure_eight_pools,height_pair,6867,6595,530,272
+figure_eight_pools,all_variables,6867,6867,0,0
+stockton,Ho,10522,2670,9700,7852
+stockton,Hn,10522,364,10451,10158
+stockton,Tp_o,10522,52,10519,10470
+stockton,direction,10522,178,10493,10344
+stockton,height_pair,10522,10164,703,358
+stockton,all_variables,10522,10522,0,0

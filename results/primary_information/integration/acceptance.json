@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "source_commit": "1ca832235e64ae5b3a482dc0ead6f9b2ff2a0456",
+  "build": {
+    "repository": "https://github.com/jlizier/jidt",
+    "commit": "1ca832235e64ae5b3a482dc0ead6f9b2ff2a0456",
+    "commit_url": "https://github.com/jlizier/jidt/commit/1ca832235e64ae5b3a482dc0ead6f9b2ff2a0456",
+    "commit_date": "2026-08-03T12:27:32+10:00",
+    "build_xml_version": "1.6.1 (source snapshot; distinguish by commit, not release label)",
+    "source_unmodified": true,
+    "java_source_files": 250,
+    "compile_command": [
+      "javac",
+      "--release",
+      "8",
+      "-encoding",
+      "UTF-8",
+      "-d",
+      "/Users/attie/Desktop/Information theory/ass2/lib/jidt-official/classes",
+      "@/Users/attie/Desktop/Information theory/ass2/lib/jidt-official/sources.args"
+    ],
+    "javac_version": "javac 21.0.12.1",
+    "jar": "lib/jidt-official/infodynamics.jar",
+    "jar_sha256": "48ef14fbbb4f69397a1ccdc4a3963d6a1db85efa52d125327741dc7e6286a0f0",
+    "cpu_only": true,
+    "fallback_jar": "/Users/attie/Desktop/Information theory/jidt-1.6.1/infodynamics.jar"
+  },
+  "java_version": "openjdk version \"21.0.12.1\" 2026-08-18 LTS\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)",
+  "settings_readback_verified": true,
+  "java_sources_sha256": {
+    "ElapsedHourLoader.java": "71e893f069ef848b47aea25fecad2e3dd454d1caf1eff04d1face97b4d0bab2b",
+    "Step7Settings.java": "60020c195fb566e7bda6940b55a26dea307a03471d2c63f41a8df0832698b499",
+    "ExactTheilerIntegrationCheck.java": "f3b1941fe1fcb6f040b193aa12ac58da4d1f1864451340789939002c1f4ea314",
+    "Step7Measures.java": "b328853415d7fb5a977541b9014c54152a326749282d7b8bf43a0acf6d59fb9e"
+  },
+  "synthetic_tests": {
+    "exact_45_hour_integration_passed": true,
+    "observations": 241,
+    "segments": 4,
+    "all_observations_retained": true,
+    "all_stored_time_indices_match": true,
+    "all_set_ids_zero": true,
+    "k": 4,
+    "window_hours": 45,
+    "boundary_hours_tested": [
+      44,
+      45,
+      46
+    ],
+    "joint_and_marginal_searches_verified": true,
+    "actual_k_nearest_searches_verified": true,
+    "unordered_pairs_checked_per_calculator": 28920,
+    "mismatches": 0,
+    "different_set_short_gap_bypass_verified_mi_and_cmi": true,
+    "singleton_segment_retained": true,
+    "direction_dimensions": [
+      2,
+      1,
+      1
+    ],
+    "mi_nats": 0.5442153640628424,
+    "cmi_period_nats": 0.01799662690675241,
+    "cmi_direction_nats": -0.024156013462694803
+  },
+  "seeded_synthetic_repeat_identical": true
+}

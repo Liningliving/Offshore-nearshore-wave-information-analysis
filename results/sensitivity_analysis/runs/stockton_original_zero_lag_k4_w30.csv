@@ -1,0 +1,4 @@
+measure,sample_size,x_dimensions,y_dimensions,condition_dimensions,k,theiler_hours,theiler_ticks,index_unit_hours,nats,bits
+height_mi,10522,1,1,0,4,30.0,30,1.0,0.46675204131335946,0.67338085532758430
+period_cmi,10522,1,1,1,4,30.0,30,1.0,-0.0051943674182739485,-0.0074938881148990340
+direction_cmi,10522,2,1,1,4,30.0,30,1.0,0.15885828951791003,0.22918406649159200

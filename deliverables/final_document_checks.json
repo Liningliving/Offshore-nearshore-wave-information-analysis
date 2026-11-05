@@ -1,0 +1,10 @@
+{
+  "original_files_unchanged": true,
+  "table_values_match_word_and_markdown": true,
+  "tables": 5,
+  "unchanged_figures_embedded": 3,
+  "no_k_sensitivity_results_in_main_report": true,
+  "three_signed_contrasts_and_required_counts_present": true,
+  "new_estimations_tests_simulations": 0,
+  "word_pagination_visually_rendered": false
+}
