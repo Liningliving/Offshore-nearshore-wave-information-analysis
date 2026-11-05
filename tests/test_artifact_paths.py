@@ -13,7 +13,9 @@ class HistoricalArtifactPaths(unittest.TestCase):
         self.assertEqual(resolve_artifact_path(ROOT/'outputs/step8/significance_summary.csv'),ROOT/'research/surrogate_validation/wave_significance_status.csv')
         self.assertEqual(resolve_artifact_path('outputs/step9extra/file.csv'),ROOT/'outputs/step9extra/file.csv')
         self.assertEqual(resolve_artifact_path('/private/tmp/unrelated.csv'),Path('/private/tmp/unrelated.csv'))
-        self.assertEqual(resolve_artifact_path('results/primary_information/report.md'),ROOT/'results/primary_information/report.md')
+        self.assertEqual(resolve_artifact_path('results/primary_information/report.md'),ROOT/'docs/analysis_workflow.md')
+        self.assertEqual(resolve_artifact_path('deliverables/assessment_status.md'),ROOT/'README.md')
+        self.assertEqual(resolve_artifact_path('README.md'),ROOT/'README.md')
 
     def test_all_archived_surrogate_result_references_resolve(self):
         d=pd.read_csv(ROOT/'research/surrogate_validation/validation/synthetic_results.csv')

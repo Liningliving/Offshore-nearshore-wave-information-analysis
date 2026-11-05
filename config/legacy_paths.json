@@ -34,7 +34,6 @@
   "outputs/project_structure_migration": "archive/migrations/purpose_names",
   "lib/jidt-official": "tools/jidt/build",
   "vendor/jidt-official": "tools/jidt/source",
-  "README.md": "docs/analysis_workflow.md",
   "information theory hw-2.pdf": "docs/project_proposal.pdf",
   "requirements-final-report.txt": "config/requirements-report.txt",
   "src/final_report_template.md": "docs/templates/final_report.md",
@@ -43,5 +42,7 @@
   "archive/professor_revision/inference_gate.json": "research/between_site_subsampling/inference_gate.json",
   "archive/professor_revision/between_site_contrasts.csv": "results/primary_information/between_site_contrasts.csv",
   "archive/professor_revision/verified_dataset_description.csv": "results/preprocessing/verified_dataset_description.csv",
-  "src/audit_final_figures.py": "src/make_presentation_figures.py"
+  "src/audit_final_figures.py": "src/make_presentation_figures.py",
+  "results/primary_information/report.md": "docs/analysis_workflow.md",
+  "deliverables/assessment_status.md": "README.md"
 }

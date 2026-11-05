@@ -1,64 +1,88 @@
-# Offshore–nearshore wave information project
+# Offshore–nearshore wave information analysis
 
-**Tutor: start with this README.** Follow the review order below for the final report, scientific figures, numerical evidence and methodological limitations. No software setup or analysis execution is needed to inspect the findings.
+An MSc Information Theory project comparing offshore–nearshore wave dependence at Figure Eight Pools and Stockton, New South Wales. Mutual information (MI) measures the relationship between offshore and nearshore significant wave height. Conditional mutual information (CMI) measures the additional dependence associated with offshore peak period and direction after conditioning on offshore height.
 
-## Suggested review order
+## Results
 
-| Order | What to review | Where |
-|---|---|---|
-| 1 | Scientific question, methods, findings and limitations | [Final Word report](deliverables/final_scientific_report.docx) or [Markdown report](deliverables/final_scientific_report.md) |
-| 2 | Direct site contrasts, temporal sensitivity and height scatterplots | [Figure 1: site contrasts](deliverables/figures/figure_1_between_site_contrasts.pdf), [Figure 2: temporal sensitivity](deliverables/figures/figure_2_temporal_sensitivity.pdf), [Figure 3: wave heights](deliverables/figures/figure_3_wave_heights.pdf) |
-| 3 | Sampling intervals, usable N and deployment coverage | [Verified dataset description](results/preprocessing/verified_dataset_description.csv), report Table 1 |
-| 4 | Six estimates and three exact site differences | [Primary results](results/primary_information/primary_information_summary.csv), [contrasts](results/primary_information/between_site_contrasts.csv) |
-| 5 | Quality filtering, timestamp handling and temporal robustness | [Preprocessing audit](results/preprocessing/preprocessing_audit.json), [sensitivity results](results/sensitivity_analysis/all_sensitivity_results.csv) |
-| 6 | What remains unestablished statistically | [Assessment status](deliverables/assessment_status.md), [methodological assessment](research/between_site_method_assessment/assessment.md) |
-| Optional | Implementation and reproduction | [Code guide](src/README.md), [workflow](docs/analysis_workflow.md), tests/ |
+| Comparison | Observed difference (bits) |
+|---|---:|
+| Height MI: Figure Eight Pools − Stockton | +0.868023 |
+| Period CMI: Stockton − Figure Eight Pools | −0.040520 |
+| Direction CMI: Stockton − Figure Eight Pools | +0.134605 |
 
-**Interpretive scope:** these are descriptive comparisons of the two deployment records. No adequately validated wave-data p-values or confidence intervals were established. The final report omits k-sensitivity analysis from its main findings.
+Height MI is greater at Figure Eight Pools, while directional CMI is greater at Stockton. Both orderings persist across the tested propagation lags and Theiler windows, although the directional contrast changes with lag. Period CMI is small and does not follow the predicted larger Stockton contribution.
 
-## Folder roles
+These are descriptive deployment-specific estimates. No validated wave-data p-values or confidence intervals are available.
 
-The first inspection should focus on deliverables/ and results/. Data are retained separately; research/ contains supporting methodological investigations, while src/, tests/, config/ and tools/ support reproduction.
+## Data and methods
 
-```text
-ass2/
-├── deliverables/        Final manuscript and selected figures
-├── data/
-│   ├── raw/             Original input files
-│   └── processed/       Two cleaned, quality-filtered datasets
-├── results/
-│   ├── primary_information/
-│   ├── sensitivity_analysis/
-│   ├── preprocessing/   Preprocessing and autocorrelation audits
-│   └── exploratory_figures/
-├── research/            Statistical-method investigations and pilots
-├── src/                 Python code and java/ application adapters
-├── tests/               Numerical, timestamp and Java integration checks
-├── docs/                Original proposal, detailed workflow and report template
-├── config/              Dependencies, source hashes and historical path aliases
-└── tools/jidt/          Pinned official source and compiled Java library
+| Buoy pairing | Offshore interval | Nearshore interval | Complete matched observations |
+|---|---|---|---:|
+| Port Kembla/Wollongong–Figure Eight Pools | Hourly | Half-hourly | 6,867 |
+| Sydney–Stockton | Hourly | Half-hourly | 10,522 |
+
+Matched observations are effectively hourly with missing-data gaps. Heights consistently use offshore WHTH and nearshore Hsig, both time-domain significant wave heights, rather than spectral Hm0. Missing observations are not interpolated, and valid extreme waves are retained.
+
+The primary calculations use JIDT's continuous Kraskov algorithm 1 estimators with k=4, normalization, max norm, exact 45-hour Theiler exclusion and fixed-seed tie-breaking noise. Direction is encoded jointly as (cos θ, sin θ). The final analysis includes propagation-lag and temporal-exclusion sensitivity; historical k-sensitivity results are retained separately from the main findings.
+
+## Documentation and outputs
+
+| Resource | Contents |
+|---|---|
+| [Scientific report](deliverables/final_scientific_report.md) | Motivation, hypotheses, findings, physical interpretation and limitations |
+| [Technical workflow](docs/analysis_workflow.md) | Estimator settings, implementation, validation evidence and reproduction commands |
+| [Primary estimates](results/primary_information/primary_information_summary.csv) | Six MI/CMI estimates in nats and bits, with settings and provenance |
+| [Between-site contrasts](results/primary_information/between_site_contrasts.csv) | Exact numerical differences between the two sites |
+| [Dataset description](results/preprocessing/verified_dataset_description.csv) | Sampling, usable counts, deployment periods and coverage |
+| [Sensitivity results](results/sensitivity_analysis/all_sensitivity_results.csv) | Saved results with sample/cohort definitions |
+
+The three selected figures are available as PNG and PDF:
+
+- [Figure 1 — Between-site information contrasts](deliverables/figures/figure_1_between_site_contrasts.pdf)
+- [Figure 2 — Temporal sensitivity](deliverables/figures/figure_2_temporal_sensitivity.pdf)
+- [Figure 3 — Offshore–nearshore wave heights](deliverables/figures/figure_3_wave_heights.pdf)
+
+## Repository structure
+
+| Directory | Contents |
+|---|---|
+| `deliverables/` | Final manuscript and selected figures |
+| `data/raw/` | Original buoy files and metadata |
+| `data/processed/` | Cleaned concurrent datasets |
+| `results/` | Primary estimates, sensitivity, preprocessing/ACF audits and exploratory figures |
+| `research/` | Surrogate-method validation and between-site inference investigations |
+| `src/`, `tests/` | Analysis code, Java adapters and verification |
+| `docs/` | Workflow, original proposal and manuscript template |
+| `config/`, `tools/` | Dependency extras, provenance/path aliases and pinned JIDT |
+
+## Setup and usage
+
+Install the base Python dependencies in a virtual environment:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
 ```
 
-## Main numerical sources
-
-| Purpose | File |
-|---|---|
-| Six primary MI/CMI estimates | [primary_information_summary.csv](results/primary_information/primary_information_summary.csv) |
-| Three descriptive site differences | [between_site_contrasts.csv](deliverables/between_site_contrasts.csv) |
-| Saved sensitivity results | [all_sensitivity_results.csv](results/sensitivity_analysis/all_sensitivity_results.csv) |
-| Sampling and preprocessing audit | [preprocessing_audit.json](results/preprocessing/preprocessing_audit.json) |
-| Outstanding assessment limitations | [assessment_status.md](deliverables/assessment_status.md) |
-
-The primary datasets contain **6,867 Figure Eight Pools** and **10,522 Stockton** observations. Heights are matching time-domain WHTH/Hsig, not spectral Hm0. The baseline is KSG1, k=4 and exact 45-hour Theiler exclusion. The final report omits k sensitivity; historical files remain available.
-
-## Optional: running the code
-
-From this directory, use the project virtual environment:
+Run the verification suite from the repository root:
 
 ```sh
 .venv/bin/python -m unittest discover -s tests
 ```
 
-The [detailed workflow](docs/analysis_workflow.md) explains preprocessing, estimation and reporting commands. Running analysis entry points regenerates their corresponding products; this reorganization did not rerun the full analyses. Base dependencies are in requirements.txt; optional sets are documented in [config/](config/README.md).
+A local JDK is required for Java integration checks and estimator runs. The [workflow](docs/analysis_workflow.md) describes the pinned JIDT setup and commands for each analysis stage. Saved results can be inspected without executing the pipeline; analysis commands regenerate their corresponding outputs.
 
-Historical paths in retained execution records are resolved by src/artifact_paths.py using config/legacy_paths.json. Superseded drafts, duplicate figure sets and disposable build caches have been removed. The final report, source data, scientific results and supporting inference evidence are retained.
+To rebuild the report, install the optional reporting dependencies and run:
+
+```sh
+.venv/bin/python -m pip install -r config/requirements-report.txt
+.venv/bin/python src/consolidate_final_report.py
+```
+
+Historical paths in retained execution records are resolved by `src/artifact_paths.py` using `config/legacy_paths.json`.
+
+## Limitations
+
+The implementation and exact elapsed-time exclusion have been checked, but statistical inference remains unresolved. Full-record subsampling failed synthetic calibration, and within-site surrogate testing stopped because null-method validity was not established. Numerical differences and sensitivity ranges are not statistically confirmed population differences or uncertainty intervals.
+
+Temporal autocorrelation, unequal deployment periods and seasonal coverage, different depths/local conditions, unequal sample sizes and one site per setting limit interpretation. The results do not establish geomorphic causation. Further details are in the [scientific report](deliverables/final_scientific_report.md) and [methodological assessment](research/between_site_method_assessment/assessment.md).

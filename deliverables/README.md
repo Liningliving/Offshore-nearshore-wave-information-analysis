@@ -1,10 +1,10 @@
 # Final deliverables
 
-For the suggested tutor review order and links to supporting evidence, see the [project README](../README.md).
+The [project README](../README.md) provides an overview of the analysis, documentation and supporting results.
 
 - [Scientific report — Word](final_scientific_report.docx): editable final manuscript.
 - [Scientific report — Markdown](final_scientific_report.md): inspect the text, numerical tables and figures directly.
-- [Assessment status](assessment_status.md): fulfilled requirements and unresolved formal statistical inference.
+- [Assessment coverage](../README.md#limitations): analysis scope and unresolved statistical inference.
 - [Figures](figures/): three selected figures, each as PNG and PDF: direct information contrasts, temporal sensitivity and descriptive height scatterplots.
 - [Primary values](primary_information_summary.csv), [site differences](between_site_contrasts.csv), and [temporal sensitivity](temporal_sensitivity_reused.csv): saved supporting results, not new calculations.
 
